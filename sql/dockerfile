@@ -1,0 +1,7 @@
+FROM mcr.microsoft.com/mssql/server:2017-latest
+RUN wget -q https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb
+RUN dpkg -i packages-microsoft-prod.deb
+RUN apt-get update
+# RUN apt-get install powershell
+WORKDIR /appveyor-lab
+COPY . /opt/mssql/appveyor-lab

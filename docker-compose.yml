@@ -1,0 +1,30 @@
+version: "3"
+services:
+  sql1:
+    build: ./sql
+    ports:
+      - "1433:1433"
+    volumes:
+      - /Users/com3mooresm/github:/opt/mssql/github
+    environment:
+      - ACCEPT_EULA=Y 
+      - SA_PASSWORD=yourStrong(!)Password
+    tty: true
+    stdin_open: true
+  sql2:
+    build: ./sql
+    ports:
+      - "1434:1433"
+    volumes:
+      - /Users/com3mooresm/github:/opt/mssql/github
+    environment:
+      - ACCEPT_EULA=Y 
+      - SA_PASSWORD=yourStrong(!)Password
+    tty: true
+    stdin_open: true
+  testb:
+    build: ./client
+    volumes:
+      - /Users/com3mooresm/github:/opt/mssql/github
+    tty: true
+    stdin_open: true
