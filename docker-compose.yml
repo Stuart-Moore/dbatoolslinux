@@ -5,7 +5,7 @@ services:
     ports:
       - "1433:1433"
     volumes:
-      - ~/project:/opt/mssql/github
+      - ~/repos:/opt/mssql/github
     environment:
       - ACCEPT_EULA=Y 
       - SA_PASSWORD=yourStrong(!)Password
@@ -16,7 +16,7 @@ services:
     ports:
       - "1434:1433"
     volumes:
-      - ~/project:/opt/mssql/github
+      - ~/repos:/opt/mssql/github
     environment:
       - ACCEPT_EULA=Y 
       - SA_PASSWORD=yourStrong(!)Password
@@ -25,6 +25,6 @@ services:
   testb:
     build: ./client
     volumes:
-      - ~/project/:/opt/mssql/github
+      - ~/repos/:/opt/mssql/github
     tty: true
     stdin_open: true
